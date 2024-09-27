@@ -11,7 +11,7 @@ export const FormError = ({ message }: FormErrorProps) => {
   }
 
   return (
-    <div className="w-full text-nowrap flex items-center rounded-md bg-red-700 py-2 px-3 gap-x-2 text-sm font-bold">
+    <div className="w-full text-nowrap flex items-center rounded-md bg-red-700 py-2 px-3 gap-x-2 text-sm font-medium">
       <ExclamationTriangleIcon className="size-5" />
       <p>{message}</p>
     </div>

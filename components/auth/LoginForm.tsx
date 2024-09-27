@@ -60,12 +60,12 @@ export const LoginForm = () => {
                   <h1>Email</h1>
                   <FormControl>
                     <Input
-                      disabled={isPending}
                       {...field}
                       placeholder="johndoe123@example.com"
                       type="email"
                       className={`${
-                        isPending && "animate-pulse duration-1000"
+                        isPending &&
+                        "animate-pulse duration-700 cursor-not-allowed"
                       }`}
                     />
                   </FormControl>
@@ -81,12 +81,12 @@ export const LoginForm = () => {
                   <h1>Password</h1>
                   <FormControl>
                     <Input
-                      disabled={isPending}
                       {...field}
                       placeholder="******"
                       type="password"
                       className={`${
-                        isPending && "animate-pulse duration-1000"
+                        isPending &&
+                        "animate-pulse duration-700 cursor-not-allowed"
                       }`}
                     />
                   </FormControl>
@@ -95,12 +95,13 @@ export const LoginForm = () => {
               )}
             />
           </div>
-          <FormError message={error} />
-          <FormSuccess message={success} />
+          <div className="py-1">
+            <FormError message={error} />
+            <FormSuccess message={success} />
+          </div>
           <Button
-            disabled={isPending}
             className={`${
-              isPending && "animate-pulse duration-1000 cursor-wait"
+              isPending && "animate-pulse duration-700 cursor-wait"
             } w-full font-bold text-sm`}
           >
             Login
