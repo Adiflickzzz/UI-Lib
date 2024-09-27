@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useTransition } from "react";
 import { CardWrapper } from "./CardWrapper";
 import {
   Form,
@@ -14,8 +14,15 @@ import { LoginSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { FormSuccess } from "./FormSuccess";
+import { FormError } from "./FormError";
+import { login } from "@/actions/login";
 
 export const LoginForm = () => {
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -23,6 +30,17 @@ export const LoginForm = () => {
       password: "",
     },
   });
+
+  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    setError("");
+    setSuccess("");
+    startTransition(() => {
+      login(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.success);
+      });
+    });
+  };
 
   return (
     <CardWrapper
@@ -32,7 +50,7 @@ export const LoginForm = () => {
       backButtonHref="/auth/register"
     >
       <Form {...form}>
-        <form className="space-y-4 w-72">
+        <form className="space-y-4 w-72" onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-4">
             <FormField
               control={form.control}
@@ -42,10 +60,13 @@ export const LoginForm = () => {
                   <h1>Email</h1>
                   <FormControl>
                     <Input
-                      // disabled={isloading}
+                      disabled={isPending}
                       {...field}
                       placeholder="johndoe123@example.com"
                       type="email"
+                      className={`${
+                        isPending && "animate-pulse duration-1000"
+                      }`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -60,10 +81,13 @@ export const LoginForm = () => {
                   <h1>Password</h1>
                   <FormControl>
                     <Input
-                      // disabled={isloading}
+                      disabled={isPending}
                       {...field}
                       placeholder="******"
                       type="password"
+                      className={`${
+                        isPending && "animate-pulse duration-1000"
+                      }`}
                     />
                   </FormControl>
                   <FormMessage />
@@ -71,7 +95,14 @@ export const LoginForm = () => {
               )}
             />
           </div>
-          <Button className="w-full font-bold text-sm" type="submit">
+          <FormError message={error} />
+          <FormSuccess message={success} />
+          <Button
+            disabled={isPending}
+            className={`${
+              isPending && "animate-pulse duration-1000 cursor-wait"
+            } w-full font-bold text-sm`}
+          >
             Login
           </Button>
         </form>

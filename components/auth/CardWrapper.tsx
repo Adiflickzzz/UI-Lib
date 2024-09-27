@@ -27,10 +27,13 @@ export const CardWrapper = ({
 }: CardWrapperProps) => {
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
+      {/* Left side for larger screens */}
       <div className="border-r-2 my-14 hidden lg:flex items-center justify-center">
         <Image src="/logo.svg" height={100} width={100} alt="logo" />
       </div>
-      <div className="h-full lg:flex flex-col items-center justify-center">
+
+      {/* Right side: Visible on small and large screens */}
+      <div className="flex items-center justify-center min-h-screen lg:min-h-0 lg:flex flex-col">
         <div className="text-center space-y-2">
           <h1 className="text-3xl">{headerLabel}</h1>
           <p className="text-base text-white/80">{description}</p>
