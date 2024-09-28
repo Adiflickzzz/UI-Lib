@@ -126,7 +126,7 @@ export const RegisterForm = () => {
               isPending && "animate-pulse duration-700 cursor-wait"
             } w-full font-bold text-sm`}
           >
-            Login
+            Register
           </Button>
         </form>
       </Form>
