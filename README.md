@@ -1,5 +1,4 @@
 <h1>UI-Lib</h1>
-## Getting Started
 
 ## Installation
 
