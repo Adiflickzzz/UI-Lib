@@ -1,6 +1,7 @@
+<h1>UI-Lib</h1>
 ## Getting Started
 
-##Installation
+## Installation
 
 1.Clone your repository:
 
