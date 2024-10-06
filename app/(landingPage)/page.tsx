@@ -9,8 +9,10 @@ import { Wrapper } from "@/components/wrapper";
 export default function Home() {
   return (
     <Wrapper>
-      <Navbar />
-      <div className="flex py-24 px-12 gap-16">
+      <div>
+        <Navbar />
+      </div>
+      <div className="flex m-20 gap-16">
         <div className="">
           <Sidenav />
         </div>
@@ -19,8 +21,8 @@ export default function Home() {
         </div>
         <div className="flex-1 -mt-1">
           <MainSection
-            header="Input"
-            description="Displays a form input field or a component that looks like an input field."
+            header="Awwwards Side Menu"
+            description="Rebuild an Awwwards Side Menu with Framer motion and Nextjs."
           />
         </div>
       </div>

@@ -5,5 +5,5 @@ interface Wrapper {
 }
 
 export const Wrapper = ({ children }: Wrapper) => {
-  return <div className="py-12 px-20">{children}</div>;
+  return <div className="py-8 px-32">{children}</div>;
 };
