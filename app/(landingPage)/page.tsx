@@ -17,8 +17,11 @@ export default function Home() {
         <div>
           <Separator orientation="vertical" className="" />
         </div>
-        <div className="flex-1">
-          <MainSection />
+        <div className="flex-1 -mt-1">
+          <MainSection
+            header="Input"
+            description="Displays a form input field or a component that looks like an input field."
+          />
         </div>
       </div>
     </Wrapper>

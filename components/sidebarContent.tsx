@@ -1,21 +1,23 @@
 interface SidebarContentProps {
-  header: string;
-  list: string[];
+  data?: {
+    header: string;
+    listItems: string[];
+  }[];
 }
 
-export const SidebarContent = ({ header, list }: SidebarContentProps) => {
+export const SidebarContent = ({ data = [] }: SidebarContentProps) => {
   return (
-    <div>
-      <div className="space-y-6 ">
-        <div className="font-semibold">{header}</div>
-        <div className="text-lg space-y-2">
-          <div className="">Introduction</div>
-          <div className="">Installation</div>
-          <div className="">Button</div>
-          <div className="">Form</div>
-          <div className="">Button 2</div>
+    <div className="space-y-10">
+      {data.map((section, index) => (
+        <div key={index} className="space-y-4">
+          <div className="font-semibold">{section.header}</div>
+          <div className="text-lg space-y-2">
+            {section.listItems.map((item, itemIndex) => (
+              <div key={itemIndex}>{item}</div>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
