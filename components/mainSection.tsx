@@ -116,7 +116,6 @@ export function ProfileForm() {
                   background: "transparent",
                 }}
                 wrapLongLines={true}
-                showLineNumbers
               >
                 {codeString}
               </SyntaxHighlighter>
