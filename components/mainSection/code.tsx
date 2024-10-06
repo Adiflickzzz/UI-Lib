@@ -22,7 +22,7 @@ async function highlightCode(code: string) {
     .use(remarkRehype)
     .use(rehypePrettyCode, {
       keepBackground: false,
-      theme: "one-dark-pro",
+      theme: "min-dark",
     })
     .use(rehypeStringify)
     .process(code);
