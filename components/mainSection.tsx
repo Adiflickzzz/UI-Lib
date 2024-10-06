@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { MainNavButtons } from "./mainSection/mainNavButtons";
 import LoopVideo from "./mainSection/video";
-
+import CodeSection from "./mainSection/codeSection";
 interface MainSectionProps {
   header: string;
   description: string;
@@ -32,7 +32,9 @@ export const MainSection = ({ header, description }: MainSectionProps) => {
         </div>
       </div>
       <div className="w-3/4">
-        <div></div>
+        <div>
+          <CodeSection />
+        </div>
       </div>
     </div>
   );
