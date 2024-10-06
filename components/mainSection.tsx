@@ -13,14 +13,15 @@ import LoopVideo from "./mainSection/video";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { nnfxDark as style } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
+import { LuClipboardList } from "react-icons/lu";
 interface MainSectionProps {
   header: string;
   description: string;
 }
 
 export const MainSection = ({ header, description }: MainSectionProps) => {
-  const codeString = `
-  "use client"
+  const codeString = `"use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -92,7 +93,7 @@ export function ProfileForm() {
       <div className="w-3/4">
         <div className="mt-10">
           <Card className="backdrop-blur-lg">
-            <CardHeader>
+            <CardHeader className="py-4">
               <div className="flex justify-between items-center">
                 <CardTitle>Card Title</CardTitle>
                 <Button
@@ -100,12 +101,14 @@ export function ProfileForm() {
                     navigator.clipboard.writeText(codeString);
                   }}
                   variant="outline"
+                  className="px-3"
                 >
-                  Copy
+                  <LuClipboardList className="size-4" />
                 </Button>
               </div>
             </CardHeader>
-            <CardContent>
+            <Separator />
+            <CardContent className="mt-4 p-0">
               <SyntaxHighlighter
                 language="javascript"
                 style={style}
@@ -113,6 +116,7 @@ export function ProfileForm() {
                   background: "transparent",
                 }}
                 wrapLongLines={true}
+                showLineNumbers
               >
                 {codeString}
               </SyntaxHighlighter>
