@@ -1,5 +1,5 @@
 import React from "react";
-import { SidebarContent } from "./sidebarContent";
+import { SidebarContent } from "./miniComp/sidebarContent";
 
 const data = [
   {
@@ -24,7 +24,7 @@ const data = [
   },
 ];
 
-export const Sidenav = () => {
+export const Sidebar = () => {
   return (
     <div className="container space-y-10 text-xl">
       <SidebarContent data={data} />

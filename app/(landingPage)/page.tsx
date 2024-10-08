@@ -1,7 +1,7 @@
 import LoginButton from "@/components/auth/LoginButton";
 import { MainSection } from "@/components/mainSection";
 import { Navbar } from "@/components/navbar";
-import { Sidenav } from "@/components/sidenav";
+import { Sidebar } from "@/components/sidebar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Wrapper } from "@/components/wrapper";
@@ -14,7 +14,7 @@ export default function Home() {
       </div>
       <div className="flex m-20 gap-16">
         <div className="">
-          <Sidenav />
+          <Sidebar />
         </div>
         <div>
           <Separator orientation="vertical" className="" />

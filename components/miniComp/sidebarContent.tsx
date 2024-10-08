@@ -1,3 +1,7 @@
+"use client";
+
+import Link from "next/link";
+
 interface SidebarContentProps {
   data?: {
     header: string;
@@ -13,7 +17,13 @@ export const SidebarContent = ({ data = [] }: SidebarContentProps) => {
           <div className="font-semibold">{section.header}</div>
           <div className="text-lg space-y-2">
             {section.listItems.map((item, itemIndex) => (
-              <div key={itemIndex}>{item}</div>
+              <Link
+                key={itemIndex}
+                href={`/premium/components/${item}`}
+                className="block"
+              >
+                {item}
+              </Link>
             ))}
           </div>
         </div>

@@ -8,13 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MainNavButtons } from "./mainSection/mainNavButtons";
-import LoopVideo from "./mainSection/video";
-import { nnfxDark as style } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { MainNavButtons } from "./miniComp/mainNavButtons";
+import LoopVideo from "./miniComp/video";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { LuClipboardList } from "react-icons/lu";
-import CodeBlock from "./mainSection/codeBlock";
+import CodeBlock from "./miniComp/codeBlock";
 interface MainSectionProps {
   header: string;
   description: string;
